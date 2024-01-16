@@ -1,1 +1,41 @@
+<html>
+  <head>
 
+    <! -- Pyscript website: https://pyscript.net/ -->
+    <! -- Code from Youtube video: https://www.youtube.com/watch?v=Kd_gNtldbSM -->
+    
+    <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+    <script type="module" src="https://pyscript.net/alpha/pyscript.js"></script>
+  </head>
+
+  
+<py-script>
+
+
+import nltk
+from nltk.corpus import wordnet
+
+nltk.download('wordnet')
+
+def get_meaning():
+    query = input("Enter word: ")
+    synsets = wordnet.synsets(query)
+
+    if synsets:
+        for synset in synsets:
+            print(f"{synset.pos()}: {', '.join(synset.definition().split(';'))}")
+    else:
+        print("Meaning not found for the given word.")
+
+def main():
+    while True:
+        get_meaning()
+
+if __name__ == "__main__":
+    main()
+
+  
+
+</py-script>
+  
+</html>
